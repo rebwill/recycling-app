@@ -70,7 +70,9 @@ const App = () => {
   };
 
   const handleItemChange = event => {
-    setCurrentItemParent(event.target.value);
+    let itemArr = items.filter(item => item.name === event.target.value);
+    let itemObj = itemArr[0];
+    setCurrentItemParent(itemObj);
   };
 
   const testFunction = () => {
@@ -102,7 +104,9 @@ const App = () => {
 
         {/* DISPLAY ITEM INFO  */}
 
-        {currentItemParent ? <ItemCard /> : null}
+        {currentItemParent ? (
+          <ItemCard currentItem={currentItemParent} />
+        ) : null}
       </header>
     </div>
   );
