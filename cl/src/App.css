@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  /* background-color: #f7d1ba; */
+  /* background-color: #9af5d9; */
+  width: 100vw;
+  font-family: "Poiret One";
 }
 
 .App-logo {
@@ -14,10 +18,14 @@
 }
 
 .App-header {
-  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-image: url("./assets/palmtree1.svg"),
+    linear-gradient(to top right, #9af5d9, #9af5d9, #9af5d9, white);
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-attachment: fixed;
   /* align-items: center; */
   /* justify-content: center; */
   font-size: calc(10px + 2vmin);

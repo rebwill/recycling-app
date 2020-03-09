@@ -96,3 +96,20 @@ exports.deleteItem = async (req, res) => {
     });
   }
 };
+
+// DELETE ALL
+
+exports.deleteAll = async (req, res) => {
+  try {
+    await Item.deleteMany({});
+    res.status(204).json({
+      status: "success",
+      data: null
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err
+    });
+  }
+};

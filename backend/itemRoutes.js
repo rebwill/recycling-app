@@ -18,7 +18,8 @@ app.get("/", async (req, res) => {
 router
   .route("/trash")
   .get(itemController.getItems)
-  .post(itemController.createItem);
+  .post(itemController.createItem)
+  .delete(itemController.deleteAll);
 
 router
   .route("/trash/:id")

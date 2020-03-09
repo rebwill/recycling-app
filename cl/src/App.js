@@ -1,13 +1,24 @@
 import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
+import palmtree1 from "./assets/palmtree1.svg";
 
 import logo from "./logo.svg";
 import "./App.css";
+
 import CategorySelector from "./components/CategorySelector";
 import ItemSelector from "./components/ItemSelector";
 import ItemCard from "./components/ItemCard";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(theme => ({
+  App: {
+    color: "#fab687"
+  }
+}));
 
 const App = () => {
+  const classes = useStyles();
+
   const [test, setTest] = useState("");
   const [items, setItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
@@ -36,9 +47,6 @@ const App = () => {
   };
 
   const filterItems = () => {
-    console.log("filterItems reached:", currentCategoryParent);
-    console.log(items);
-
     const filteredItemList = items.filter(
       item => item.category === currentCategoryParent
     );
@@ -51,8 +59,6 @@ const App = () => {
           : -1
         : -1
     );
-    // list.sort((a, b) => (a.color > b.color) ? 1 : (a.color === b.color) ? ((a.size > b.size) ? 1 : -1) : -1 )
-    console.log(filteredItemList);
     setFilteredItems(filteredItemList);
   };
 
@@ -61,12 +67,13 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    console.log("useEffect #2", currentCategoryParent);
     filterItems();
   }, [currentCategoryParent]);
 
   const handleCategoryChange = event => {
     setCurrentCategoryParent(event.target.value);
+    setFilteredItems([]);
+    setCurrentItemParent("");
   };
 
   const handleItemChange = event => {
@@ -75,16 +82,15 @@ const App = () => {
     setCurrentItemParent(itemObj);
   };
 
-  const testFunction = () => {
-    console.log("testFunction reached!");
-  };
+  // const testFunction = () => {
+  //   console.log("testFunction reached!");
+  // };
 
   return (
     <div className="App">
       <header className="App-header">
         {/* SELECT CATEGORY  */}
 
-        <h2>Select category</h2>
         <CategorySelector
           handleCategoryChange={handleCategoryChange}
           categories={categories.sort()}
@@ -94,7 +100,6 @@ const App = () => {
 
         {filteredItems.length > 0 ? (
           <div>
-            <h2>Select item</h2>
             <ItemSelector
               handleItemChange={handleItemChange}
               filteredItems={filteredItems}
@@ -133,3 +138,6 @@ export default App;
 //     return <p>{items[0].image}</p>;
 //   }
 // };
+
+// #6b03f
+// #fab687

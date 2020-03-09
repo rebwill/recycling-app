@@ -6,15 +6,51 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import { makeStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import Card from "@material-ui/core/Card";
+
+import Zoom from "@material-ui/core/Zoom";
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    color: "red"
+  card: {
+    color: "#282c34",
+    minWidth: "200px",
+    maxWidth: "40vw",
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginTop: "2rem",
+    marginBottom: "2rem",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "20px",
+    // borderRadius: "30px",
+    textAlign: "left",
+    "& h3": {
+      marginTop: 0,
+      marginBottom: "1rem",
+      fontFamily: "Limelight",
+      color: "#f58b45"
+    },
+    clipPath:
+      "polygon( 0% 20px, 20px 0%, calc(100% - 20px) 0%, 100% 20px, 100% calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px) )",
+    // "polygon( 0% 10px, 10px 0%, calc(100% - 10px) 0%, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px) )",
+    // border: "8px outset #72d6b7 ",
+    backgroundColor: "white"
+  },
+  formControl: {
+    width: "60%",
+    textAlign: "left"
+  },
+  select: {
+    borderRadius: "10px"
   }
 }));
 
 const CategorySelector = props => {
   const [currentCategoryChild, setCurrentCategoryChild] = useState("");
+  const [displayCategory, setDisplayCategory] = useState(true);
 
   const classes = useStyles();
 
@@ -33,18 +69,27 @@ const CategorySelector = props => {
 
   return (
     <div>
-      <FormControl className={classes.formControl}>
-        <Select
-          labelId="demo-simple-select-autowidth-label"
-          id="demo-simple-select-autowidth"
-          value={currentCategoryChild}
-          onChange={handleChange}
-          autoWidth
-        >
-          {categoryList}
-        </Select>
-        <FormHelperText>Category</FormHelperText>
-      </FormControl>
+      <Zoom
+        in={displayCategory}
+        style={{ transitionDelay: displayCategory ? "150ms" : "0ms" }}
+      >
+        <Card className={classes.card} elevation={3}>
+          <h3>SELECT CATEGORY</h3>
+          <FormControl className={classes.formControl}>
+            <Select
+              className="select"
+              labelId="demo-simple-select-autowidth-label"
+              id="demo-simple-select-autowidth"
+              value={currentCategoryChild}
+              onChange={handleChange}
+              autoWidth
+            >
+              {categoryList}
+            </Select>
+            <FormHelperText>Category</FormHelperText>
+          </FormControl>
+        </Card>
+      </Zoom>
     </div>
   );
 };
