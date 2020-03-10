@@ -14,23 +14,6 @@ import Zoom from "@material-ui/core/Zoom";
 import { red } from "@material-ui/core/colors";
 
 const useStyles = makeStyles({
-  // root: {
-  //   minWidth: 275,
-  //   maxWidth: 500,
-  //   marginLeft: "auto",
-  //   marginRight: "auto"
-  // },
-  // bullet: {
-  //   display: "inline-block",
-  //   margin: "0 2px",
-  //   transform: "scale(0.8)"
-  // },
-  // title: {
-  //   fontSize: 14
-  // },
-  // pos: {
-  //   marginBottom: 12
-  // }
   card: {
     minWidth: "200px",
     maxWidth: "40vw",
@@ -50,7 +33,9 @@ const useStyles = makeStyles({
       marginTop: 0,
       marginBottom: "1rem",
       fontFamily: "Limelight",
-      color: "#f98dc9"
+      // color: "#f98dc9"
+      color: "black",
+      fontSize: "30px"
     },
     // border: "8px outset #f98dc9",
     clipPath:
@@ -74,6 +59,14 @@ const useStyles = makeStyles({
   },
   avatarFalse: {
     backgroundColor: red[500]
+  },
+  cleanAlert: {
+    backgroundColor: "#ef99f2",
+    borderRadius: "15px",
+    padding: "0.5rem"
+  },
+  cardInfo: {
+    marginBottom: "1rem"
   }
 });
 
@@ -115,54 +108,67 @@ const ItemCard = props => {
           // subheader={props.currentItem.category}
         /> */}
         <CardContent>
+          {/* Recyclable? */}
           <Typography className="recyclableHeading">
             {props.currentItem.recyclable == true ? (
-              <h3>♻️ ¡DALE! RECYCLE THAT.</h3>
+              <h3>♻️ ¡Dale! Recycle that.</h3>
             ) : (
-              <h3>❌ YOU CAN'T RECYCLE THAT, BRO.</h3>
+              <h3>❌ Bro. You can't recycle that.</h3>
             )}
           </Typography>
+
+          {/* Name and category */}
           <Typography variant="h5" component="h2">
             {props.currentItem.name}
           </Typography>
-          <Typography className={classes.pos} color="textSecondary">
-            {props.currentItem.category}
-            <br /> <br />
+          <Typography className={classes.cardInfo} color="textSecondary">
+            <span>{props.currentItem.category}</span>
           </Typography>
 
           {/* Display item description, if it has one */}
           {props.currentItem.description ? (
-            <Typography variant="body2" component="p">
+            <Typography
+              variant="body2"
+              component="p"
+              className={classes.cardInfo}
+            >
               <strong>Description:</strong>
               <br />
-              {props.currentItem.description}
-              <br /> <br />
-            </Typography>
-          ) : null}
-
-          {/* Display cleanAlert, if it has one */}
-          {props.currentItem.cleanAlert ? (
-            <Typography variant="body2" component="p">
-              <strong>
-                ⚠️ Watch out! This can only be recycled if it is empty, clean,
-                dry, and free from food, drink, and oil residue. Make sure you
-                clean before recycling!
-              </strong>
-              <br /> <br />
+              <span>{props.currentItem.description}</span>
             </Typography>
           ) : null}
 
           {/* Display alternate disposal method, if it has one */}
           {props.currentItem.otherDisposal ? (
-            <Typography variant="body2" component="p">
-              <strong>Disposal:</strong>
+            <Typography
+              variant="body2"
+              component="p"
+              className={classes.cardInfo}
+            >
+              <strong>Disposal: </strong>
               <br />
               <span
                 dangerouslySetInnerHTML={{
                   __html: DOMpurify.sanitize(props.currentItem.otherDisposal)
                 }}
               />
-              <br />
+            </Typography>
+          ) : null}
+
+          {/* Display cleanAlert, if it has one */}
+          {props.currentItem.cleanAlert ? (
+            <Typography
+              variant="body2"
+              component="p"
+              className={classes.cardInfo}
+            >
+              <div className={classes.cleanAlert}>
+                <strong>
+                  ⚠️ This can only be recycled if it is empty, clean, dry, and
+                  free from food, drink, and oil residue. Make sure you clean
+                  before recycling!
+                </strong>
+              </div>
             </Typography>
           ) : null}
 
@@ -171,8 +177,7 @@ const ItemCard = props => {
             <Typography variant="body2" component="p">
               <strong>Tip:</strong>
               <br />
-              {props.currentItem.tip}
-              <br /> <br />
+              <span>{props.currentItem.tip}</span>
             </Typography>
           ) : null}
         </CardContent>

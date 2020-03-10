@@ -29,7 +29,9 @@ const useStyles = makeStyles(theme => ({
       marginTop: 0,
       marginBottom: "1rem",
       fontFamily: "Limelight",
-      color: "#41a4d9"
+      // color: "#41a4d9"
+      color: "black",
+      fontSize: "30px"
     },
     // border: "8px outset #76d7f5",
     clipPath:
@@ -71,7 +73,7 @@ const ItemSelector = props => {
         style={{ transitionDelay: displayItem ? "150ms" : "0ms" }}
       >
         <Card className={classes.card} elevation={3}>
-          <h3>SELECT ITEM</h3>
+          <h3>Select Item</h3>
           <FormControl className={classes.formControl}>
             <Select
               labelId="demo-simple-select-autowidth-label"

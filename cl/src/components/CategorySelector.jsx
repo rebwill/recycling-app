@@ -31,7 +31,9 @@ const useStyles = makeStyles(theme => ({
       marginTop: 0,
       marginBottom: "1rem",
       fontFamily: "Limelight",
-      color: "#f58b45"
+      // color: "#f58b45"
+      color: "black",
+      fontSize: "30px"
     },
     clipPath:
       "polygon( 0% 20px, 20px 0%, calc(100% - 20px) 0%, 100% 20px, 100% calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px) )",
@@ -74,7 +76,7 @@ const CategorySelector = props => {
         style={{ transitionDelay: displayCategory ? "150ms" : "0ms" }}
       >
         <Card className={classes.card} elevation={3}>
-          <h3>SELECT CATEGORY</h3>
+          <h3>Select Category</h3>
           <FormControl className={classes.formControl}>
             <Select
               className="select"
