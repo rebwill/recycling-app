@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
-import Button from "@material-ui/core/Button";
-import palmtree1 from "./assets/palmtree1.svg";
 
-import logo from "./logo.svg";
 import "./App.css";
-
 import CategorySelector from "./components/CategorySelector";
 import ItemSelector from "./components/ItemSelector";
 import ItemCard from "./components/ItemCard";
+import MainNav from "./components/MainNav";
+// import HomePageText from "./components/HomePageText";
+import palmtree1 from "./assets/palmtree1.svg";
+
+import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const useStyles = makeStyles(theme => ({
   App: {
@@ -82,21 +84,18 @@ const App = () => {
     setCurrentItemParent(itemObj);
   };
 
-  // const testFunction = () => {
-  //   console.log("testFunction reached!");
-  // };
-
   return (
     <div className="App">
-      <header className="App-header">
-        {/* SELECT CATEGORY  */}
+      <MainNav />
+      <header className="selectorContainer">
+        {/* Select Category  */}
 
         <CategorySelector
           handleCategoryChange={handleCategoryChange}
           categories={categories.sort()}
         />
 
-        {/* SELECT ITEM  */}
+        {/* Select Name */}
 
         {filteredItems.length > 0 ? (
           <div>
@@ -107,7 +106,7 @@ const App = () => {
           </div>
         ) : null}
 
-        {/* DISPLAY ITEM INFO  */}
+        {/* Display Item Info  */}
 
         {currentItemParent ? (
           <ItemCard currentItem={currentItemParent} />

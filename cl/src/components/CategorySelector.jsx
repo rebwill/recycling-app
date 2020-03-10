@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     maxWidth: "40vw",
     marginLeft: "auto",
     marginRight: "auto",
-    marginTop: "2rem",
+    marginTop: "2.5rem",
     marginBottom: "2rem",
     display: "flex",
     flexDirection: "column",
@@ -27,19 +27,20 @@ const useStyles = makeStyles(theme => ({
     padding: "20px",
     // borderRadius: "30px",
     textAlign: "left",
-    "& h3": {
-      marginTop: 0,
-      marginBottom: "1rem",
-      fontFamily: "Limelight",
-      // color: "#f58b45"
-      color: "black",
-      fontSize: "30px"
-    },
     clipPath:
       "polygon( 0% 20px, 20px 0%, calc(100% - 20px) 0%, 100% 20px, 100% calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px) )",
     // "polygon( 0% 10px, 10px 0%, calc(100% - 10px) 0%, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px) )",
     // border: "8px outset #72d6b7 ",
-    backgroundColor: "white"
+    backgroundColor: "white",
+    marginTop: "100px",
+    "& h3": {
+      marginTop: 0,
+      marginBottom: "1rem",
+      fontFamily: "Poiret One",
+      // color: "#f58b45"
+      color: "black",
+      fontSize: "30px"
+    }
   },
   formControl: {
     width: "60%",
@@ -75,7 +76,7 @@ const CategorySelector = props => {
         in={displayCategory}
         style={{ transitionDelay: displayCategory ? "150ms" : "0ms" }}
       >
-        <Card className={classes.card} elevation={3}>
+        <Card className={classes.card}>
           <h3>Select Category</h3>
           <FormControl className={classes.formControl}>
             <Select

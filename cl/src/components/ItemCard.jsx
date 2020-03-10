@@ -32,7 +32,7 @@ const useStyles = makeStyles({
     "& h3": {
       marginTop: 0,
       marginBottom: "1rem",
-      fontFamily: "Limelight",
+      fontFamily: "Poiret One",
       // color: "#f98dc9"
       color: "black",
       fontSize: "30px"
@@ -54,18 +54,17 @@ const useStyles = makeStyles({
   select: {
     borderRadius: "10px"
   },
-  avatarTrue: {
-    backgroundColor: "green"
-  },
-  avatarFalse: {
-    backgroundColor: red[500]
-  },
   cleanAlert: {
-    backgroundColor: "#ef99f2",
-    borderRadius: "15px",
+    backgroundColor: "pink",
+    // borderRadius: "15px",
     padding: "0.5rem"
   },
   cardInfo: {
+    marginBottom: "1rem",
+    fontFamily: "Roboto"
+  },
+  itemName: {
+    fontSize: "1.5rem",
     marginBottom: "1rem"
   }
 });
@@ -84,29 +83,6 @@ const ItemCard = props => {
       style={{ transitionDelay: displayCard ? "150ms" : "0ms" }}
     >
       <Card className={classes.card} elevation={3}>
-        {/* <CardHeader
-          className={classes.header}
-          avatar={
-            props.currentItem.recyclable == true ? (
-              <Avatar aria-label="recyclable" className={classes.avatarTrue}>
-                ✓
-              </Avatar>
-            ) : (
-              <Avatar aria-label="recyclable" className={classes.avatarFalse}>
-                X
-              </Avatar>
-            )
-          }
-          title={
-            props.currentItem.recyclable == true ? (
-              <h3>¡Dale! Recycle that.</h3>
-            ) : (
-              <h3>You can't recycle that, bro.</h3>
-            )
-          }
-          // title={props.currentItem.name}
-          // subheader={props.currentItem.category}
-        /> */}
         <CardContent>
           {/* Recyclable? */}
           <Typography className="recyclableHeading">
@@ -117,13 +93,23 @@ const ItemCard = props => {
             )}
           </Typography>
 
-          {/* Name and category */}
+          {/* Name and category
           <Typography variant="h5" component="h2">
             {props.currentItem.name}
           </Typography>
           <Typography className={classes.cardInfo} color="textSecondary">
             <span>{props.currentItem.category}</span>
+          </Typography> */}
+
+          {/* Name */}
+          <Typography className={classes.itemName}>
+            <strong>{props.currentItem.name}</strong>
           </Typography>
+
+          {/* Category
+          <Typography className={classes.cardInfo} color="textSecondary">
+            <span>{props.currentItem.category}</span>
+          </Typography> */}
 
           {/* Display item description, if it has one */}
           {props.currentItem.description ? (
@@ -163,11 +149,9 @@ const ItemCard = props => {
               className={classes.cardInfo}
             >
               <div className={classes.cleanAlert}>
-                <strong>
-                  ⚠️ This can only be recycled if it is empty, clean, dry, and
-                  free from food, drink, and oil residue. Make sure you clean
-                  before recycling!
-                </strong>
+                <strong> ⚠️ Alert!</strong> This can only be recycled if it is
+                empty, clean, dry, and free from food, drink, and oil residue.
+                Make sure you clean before recycling!
               </div>
             </Typography>
           ) : null}

@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
     "& h3": {
       marginTop: 0,
       marginBottom: "1rem",
-      fontFamily: "Limelight",
+      fontFamily: "Poiret One",
       // color: "#41a4d9"
       color: "black",
       fontSize: "30px"
