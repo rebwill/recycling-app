@@ -18,8 +18,8 @@ const useStyles = makeStyles(theme => ({
     maxWidth: "40vw",
     marginLeft: "auto",
     marginRight: "auto",
-    marginTop: "2.5rem",
-    marginBottom: "2rem",
+    marginBottom: "1rem",
+    marginTop: "150px",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
     // "polygon( 0% 10px, 10px 0%, calc(100% - 10px) 0%, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px) )",
     // border: "8px outset #72d6b7 ",
     backgroundColor: "white",
-    marginTop: "100px",
+
     "& h3": {
       marginTop: 0,
       marginBottom: "1rem",

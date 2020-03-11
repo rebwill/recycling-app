@@ -18,17 +18,18 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "Limelight"
   },
   navbarLink: {
-    fontSize: "1.5rem",
-    color: "red",
-    backgroundColor: "pink"
-    // marginLeft: "5px",
+    fontSize: "1.25rem",
+    color: "black !important",
+    backgroundColor: "pink",
+    marginLeft: "5px"
     // borderRadius: "5px"
   },
   navDropdown: {
     width: "auto"
   },
   navbarText: {
-    fontSize: "1.5rem"
+    fontSize: "1.25rem",
+    color: "black !important"
   }
 }));
 
