@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 
-import "./App.css";
-import CategorySelector from "./components/CategorySelector";
-import ItemSelector from "./components/ItemSelector";
-import ItemCard from "./components/ItemCard";
-import MainNav from "./components/MainNav";
+import "../App.css";
+import CategorySelector from "../components/CategorySelector";
+import ItemSelector from "../components/ItemSelector";
+import ItemCard from "../components/ItemCard";
+import MainNav from "../components/MainNav";
 // import HomePageText from "./components/HomePageText";
-import palmtree1 from "./assets/palmtree1.svg";
 
-import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -86,7 +84,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <MainNav />
+      {/* <MainNav /> */}
       <header className="selectorContainer">
         {/* Select Category  */}
 

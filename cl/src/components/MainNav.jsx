@@ -21,7 +21,8 @@ const useStyles = makeStyles(theme => ({
     fontSize: "1.25rem",
     color: "black !important",
     backgroundColor: "pink",
-    marginLeft: "5px"
+    marginLeft: "5px",
+    fontFamily: "Poiret One"
     // borderRadius: "5px"
   },
   navDropdown: {
@@ -29,7 +30,8 @@ const useStyles = makeStyles(theme => ({
   },
   navbarText: {
     fontSize: "1.25rem",
-    color: "black !important"
+    color: "black !important",
+    fontFamily: "Poiret One"
   }
 }));
 
@@ -45,7 +47,7 @@ const MainNav = props => {
         variant="light"
         className={classes.navbarMain}
       >
-        <Navbar.Brand href="#home" className={classes.navbarBrand}>
+        <Navbar.Brand href="/home" className={classes.navbarBrand}>
           MIA Recycling
         </Navbar.Brand>
         <Navbar.Text className={classes.navbarText}>
@@ -57,10 +59,10 @@ const MainNav = props => {
         />
         <Navbar.Collapse id="responsive-navbar-nav" className="navDropdown">
           <Nav className="ml-auto">
-            <Nav.Link href="#home" className={classes.navbarLink}>
+            <Nav.Link href="/" className={classes.navbarLink}>
               Home
             </Nav.Link>
-            <Nav.Link href="#home" className={classes.navbarLink}>
+            <Nav.Link href="/about" className={classes.navbarLink}>
               About
             </Nav.Link>
           </Nav>
