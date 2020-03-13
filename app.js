@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 
 const itemRouter = require("./itemRoutes");
 
@@ -11,5 +12,9 @@ app.use(express.json());
 // MOUNT THE ROUTER
 
 app.use("/", itemRouter);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client_new/build/index.html"));
+});
 
 module.exports = app;
