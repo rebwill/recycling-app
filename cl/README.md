@@ -1,3 +1,10 @@
+I built this app for two reasons:
+
+1. To practice building a complete MERN app
+2. To solve my own frequent problem of not knowing what can and cannot be recycled in Miami Dade.
+
+It's based on data from the Miami Dade Department of Solid Waste (https://www.miamidade.gov/global/solidwaste/recycling-a-to-z.page).
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
