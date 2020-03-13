@@ -14,7 +14,7 @@ app.use(express.json());
 app.use("/", itemRouter);
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client_new/build/index.html"));
+  res.sendFile(path.join(__dirname, "cl/build", "index.html"));
 });
 
 module.exports = app;
