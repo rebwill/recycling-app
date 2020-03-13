@@ -161,7 +161,12 @@ const ItemCard = props => {
             <Typography variant="body2" component="p">
               <strong>Tip:</strong>
               <br />
-              <span>{props.currentItem.tip}</span>
+              {/* <span>{props.currentItem.tip}</span> */}
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: DOMpurify.sanitize(props.currentItem.tip)
+                }}
+              />
             </Typography>
           ) : null}
         </CardContent>
